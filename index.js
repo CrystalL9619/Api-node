@@ -19,15 +19,17 @@ app.use("/api/projects", async (req, res) => {
   let db = await connection();
   let result = await db.collection("Projects").find({});
   let response = await result.toArray();
+  let responseInJSON = JSON.stringify(response);
 
-  res.send(JSON.stringify(response));
+  res.status(200).send(responseInJSON);
 });
 app.use("/api/links", async (req, res) => {
   let db = await connection();
   let result = await db.collection("Links").find({});
   let response = await result.toArray();
+  let responseInJSON = JSON.stringify(response);
 
-  res.send(JSON.stringify(response));
+  res.status(200).send(responseInJSON);
 });
 
 app.listen(port, () => {
