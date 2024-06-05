@@ -8,7 +8,13 @@ const cors = require("cors");
 const app = express();
 
 // Middleware
-app.use(cors());
+
+app.use(
+  cors({
+    origin: "https://vercel.com/crystals-projects-80265bd0",
+    credentials: true,
+  })
+);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
