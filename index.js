@@ -24,7 +24,7 @@ app.use(function (req, res, next) {
 
 // Routes
 app.get("/", (req, res) => {
-  res.send("Hello, World!");
+  res.send("Hello, World!!");
 });
 
 app.get("/api/projects", async (req, res) => {
