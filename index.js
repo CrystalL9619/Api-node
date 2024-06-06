@@ -27,24 +27,24 @@ app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
-app.use("/api/projects", async (req, res) => {
+app.get("/api/projects", async (req, res) => {
   let db = await connection();
   let result = await db.collection("Projects").find({});
   let response = await result.toArray();
   res.status(200).send(response);
 });
 
-app.use("/api/links", async (req, res) => {
+app.get("/api/links", async (req, res) => {
   let db = await connection();
   let result = await db.collection("Links").find({});
   let response = await result.toArray();
   res.status(200).send(response);
 });
 
-app.post("/api/contact", async (req, res) => {
+app.post("/api/contacts", async (req, res) => {
   const { name, email, message } = req.body;
   let db = await connection();
-  await db.collection("Contact").insertOne({ name, email, message });
+  await db.collection("Contacts").insertOne({ name, email, message });
   res.status(200).json({ message: "Form submitted successfully" });
 });
 

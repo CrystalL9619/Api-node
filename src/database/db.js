@@ -1,8 +1,11 @@
+require("dotenv").config();
 //import MongoClient from mongodb
 const { MongoClient } = require("mongodb");
 
-const dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@cluster0.rejunxj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@${process.env.DB_HOST}/?retryWrites=true&w=majority`;
+
 const client = new MongoClient(dbUrl);
+
 console.log(dbUrl);
 //MONGODB FUNCTIONS
 async function connection() {
